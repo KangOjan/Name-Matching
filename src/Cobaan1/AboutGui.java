@@ -98,13 +98,13 @@ public class AboutGui extends javax.swing.JFrame {
 
     private void menuCariActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuCariActionPerformed
         // TODO add your handling code here:
-        new MainGui().show();
+        new CariGui().show();
         this.dispose();
     }//GEN-LAST:event_menuCariActionPerformed
 
     private void tombolKembaliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tombolKembaliActionPerformed
         // TODO add your handling code here:
-        new MainGui().show();
+        new CariGui().show();
         this.dispose();
     }//GEN-LAST:event_tombolKembaliActionPerformed
 

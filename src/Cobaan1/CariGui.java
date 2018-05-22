@@ -17,12 +17,12 @@ import javax.swing.JOptionPane;
  *
  * @author fznrm
  */
-public class MainGui extends javax.swing.JFrame {
+public class CariGui extends javax.swing.JFrame {
 
     /**
      * Creates new form MainGui
      */
-    public MainGui() {
+    public CariGui() {
         initComponents();
         this.setLocationRelativeTo(null);
         awal();
@@ -53,9 +53,9 @@ public class MainGui extends javax.swing.JFrame {
         tombolCari = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         menuFile = new javax.swing.JMenu();
-        menuCari = new javax.swing.JMenuItem();
+        menuBaru = new javax.swing.JMenuItem();
+        menuAbout = new javax.swing.JMenuItem();
         menuKeluar = new javax.swing.JMenuItem();
-        menuAbout = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -124,13 +124,21 @@ public class MainGui extends javax.swing.JFrame {
 
         menuFile.setText("File");
 
-        menuCari.setText("Cari");
-        menuCari.addActionListener(new java.awt.event.ActionListener() {
+        menuBaru.setText("Baru");
+        menuBaru.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuCariActionPerformed(evt);
+                menuBaruActionPerformed(evt);
             }
         });
-        menuFile.add(menuCari);
+        menuFile.add(menuBaru);
+
+        menuAbout.setText("About");
+        menuAbout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuAboutActionPerformed(evt);
+            }
+        });
+        menuFile.add(menuAbout);
 
         menuKeluar.setText("Keluar");
         menuKeluar.addActionListener(new java.awt.event.ActionListener() {
@@ -141,14 +149,6 @@ public class MainGui extends javax.swing.JFrame {
         menuFile.add(menuKeluar);
 
         jMenuBar1.add(menuFile);
-
-        menuAbout.setText("About");
-        menuAbout.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuAboutActionPerformed(evt);
-            }
-        });
-        jMenuBar1.add(menuAbout);
 
         setJMenuBar(jMenuBar1);
 
@@ -228,20 +228,20 @@ public class MainGui extends javax.swing.JFrame {
 //                    System.out.println("Selesai\n");
                 }
             } catch (IOException ex) {
-                Logger.getLogger(MainGui.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(CariGui.class.getName()).log(Level.SEVERE, null, ex);
                 ex.getMessage();
             }
         }
     }//GEN-LAST:event_tombolCariActionPerformed
 
-    private void menuCariActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuCariActionPerformed
+    private void menuBaruActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuBaruActionPerformed
         // TODO add your handling code here:
         teksPencarian.setEditable(true);
         teksPencarian.setFocusable(true);
         tombolCari.setEnabled(true);
         teksPencarian.setText("");
         teksHasil.setText("");
-    }//GEN-LAST:event_menuCariActionPerformed
+    }//GEN-LAST:event_menuBaruActionPerformed
 
     private void menuKeluarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuKeluarActionPerformed
         // TODO add your handling code here:
@@ -274,20 +274,21 @@ public class MainGui extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(MainGui.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CariGui.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(MainGui.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CariGui.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(MainGui.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CariGui.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(MainGui.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CariGui.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MainGui().setVisible(true);
+                new CariGui().setVisible(true);
             }
         });
     }
@@ -299,8 +300,8 @@ public class MainGui extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JMenu menuAbout;
-    private javax.swing.JMenuItem menuCari;
+    private javax.swing.JMenuItem menuAbout;
+    private javax.swing.JMenuItem menuBaru;
     private javax.swing.JMenu menuFile;
     private javax.swing.JMenuItem menuKeluar;
     private javax.swing.JTextArea teksHasil;
