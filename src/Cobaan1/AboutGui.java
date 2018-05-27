@@ -17,6 +17,15 @@ public class AboutGui extends javax.swing.JFrame {
     public AboutGui() {
         initComponents();
         this.setLocationRelativeTo(null);
+        about();
+    }
+    
+    public void about() {
+        String tentang = "Aplikasi ini dibuat oleh Fauzan Ramadhan yang dibuat untuk memenuhi Tugas Akhir S1 Teknik Informatika. "
+                + "Aplikasi ini tidak merupakan hasil kerja pihak ketiga, melainkan benar-benar hasil Fauzan Ramadhan. Apabila "
+                + "suatu hari nanti terdapat kemiripan desain, metode maupun keluarannya, maka dapat segera menghubungi 081214757524/"
+                + "08562007800 untuk melakukan konfirmasi.";
+        labelAbout.setText("<html>" + tentang + "</html>");
     }
 
     /**
@@ -30,6 +39,7 @@ public class AboutGui extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         tombolKembali = new javax.swing.JButton();
+        labelAbout = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         menuCari = new javax.swing.JMenuItem();
@@ -49,15 +59,21 @@ public class AboutGui extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(321, Short.MAX_VALUE)
-                .addComponent(tombolKembali)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGap(0, 311, Short.MAX_VALUE)
+                        .addComponent(tombolKembali))
+                    .addComponent(labelAbout, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(245, Short.MAX_VALUE)
+                .addContainerGap()
+                .addComponent(labelAbout, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 128, Short.MAX_VALUE)
                 .addComponent(tombolKembali)
                 .addContainerGap())
         );
@@ -148,6 +164,7 @@ public class AboutGui extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel labelAbout;
     private javax.swing.JMenuItem menuCari;
     private javax.swing.JMenuItem menuKeluar;
     private javax.swing.JButton tombolKembali;
