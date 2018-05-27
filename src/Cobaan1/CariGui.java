@@ -33,6 +33,18 @@ public class CariGui extends javax.swing.JFrame {
         teksPencarian.setEditable(false);
         tombolCari.setEnabled(false);
     }
+    
+    private static boolean cekKapital(String str) {
+        char ch;
+        boolean capitalFlag = false;
+        for (int i = 0; i < str.length(); i++) {
+            ch = str.charAt(i);
+            if (Character.isUpperCase(ch)) {
+                capitalFlag = true;
+            }
+        }
+        return capitalFlag;
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
