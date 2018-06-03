@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Cobaan1;
+package View;
 
 /**
  *
@@ -25,7 +25,7 @@ public class AboutGui extends javax.swing.JFrame {
                 + "Aplikasi ini tidak merupakan hasil kerja pihak ketiga, melainkan benar-benar hasil Fauzan Ramadhan. Apabila "
                 + "suatu hari nanti terdapat kemiripan desain, metode maupun keluarannya, maka dapat segera menghubungi 081214757524/"
                 + "08562007800 untuk melakukan konfirmasi.";
-        labelAbout.setText("<html>" + tentang + "</html>");
+        labelAbout.setText("<html><div style='text-align: center;'>" + tentang + "</div></html>");
     }
 
     /**
@@ -44,7 +44,6 @@ public class AboutGui extends javax.swing.JFrame {
         jMenu1 = new javax.swing.JMenu();
         menuCari = new javax.swing.JMenuItem();
         menuKeluar = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -72,8 +71,8 @@ public class AboutGui extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(labelAbout, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 128, Short.MAX_VALUE)
+                .addComponent(labelAbout, javax.swing.GroupLayout.DEFAULT_SIZE, 216, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(tombolKembali)
                 .addContainerGap())
         );
@@ -92,9 +91,6 @@ public class AboutGui extends javax.swing.JFrame {
         jMenu1.add(menuKeluar);
 
         jMenuBar1.add(jMenu1);
-
-        jMenu2.setText("About");
-        jMenuBar1.add(jMenu2);
 
         setJMenuBar(jMenuBar1);
 
@@ -161,7 +157,6 @@ public class AboutGui extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel labelAbout;
