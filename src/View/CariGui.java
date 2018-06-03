@@ -11,6 +11,7 @@ package View;
 //import java.nio.file.Paths;
 //import java.util.logging.Level;
 //import java.util.logging.Logger;
+
 import Controller.Controller_DataDicari;
 import Controller.Controller_DataSet;
 import javax.swing.JOptionPane;
@@ -21,6 +22,9 @@ import javax.swing.JOptionPane;
  */
 public class CariGui extends javax.swing.JFrame {
 
+    Controller_DataSet controller_DataSet = new Controller_DataSet();
+    Controller_DataDicari controller_DataDicari = new Controller_DataDicari();
+
     /**
      * Creates new form MainGui
      */
@@ -28,6 +32,7 @@ public class CariGui extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         awal();
+        loadDataSet();
     }
 
     public final void awal() {
@@ -35,7 +40,7 @@ public class CariGui extends javax.swing.JFrame {
         teksPencarian.setEditable(false);
         tombolCari.setEnabled(false);
     }
-    
+
     private static boolean cekKapital(String str) {
         char ch;
         boolean capitalFlag = false;
@@ -46,6 +51,11 @@ public class CariGui extends javax.swing.JFrame {
             }
         }
         return capitalFlag;
+    }
+
+    private void loadDataSet() {
+        String alamat = "D:\\Kuliah\\Ekstensi IF\\Semester 4\\Tugas Akhir\\Dataset Hadits\\Percobaan";
+        controller_DataSet.ambilData(alamat);
     }
 
     /**
@@ -185,15 +195,17 @@ public class CariGui extends javax.swing.JFrame {
 
     private void tombolCariActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tombolCariActionPerformed
         // TODO add your handling code here:
-        Controller_DataSet controller_DataSet = new Controller_DataSet();
-        Controller_DataDicari controller_DataDicari = new Controller_DataDicari();
+
+//        Controller_DataSet controller_DataSet = new Controller_DataSet();
+//        Controller_DataDicari controller_DataDicari = new Controller_DataDicari();
         String yangDicari = teksPencarian.getText();
-        String alamat = "D:\\Kuliah\\Ekstensi IF\\Semester 4\\Tugas Akhir\\Dataset Hadits\\Percobaan";
-        controller_DataSet.ambilData(alamat);
+//        String alamat = "D:\\Kuliah\\Ekstensi IF\\Semester 4\\Tugas Akhir\\Dataset Hadits\\Percobaan";
+//        controller_DataSet.ambilData(alamat);
         controller_DataDicari.setYangDicari(yangDicari);
         System.out.println("Kata yang dicari : " + controller_DataDicari.getYangDicari());
         System.out.println("Setelah dipotong menjadi : ");
         controller_DataDicari.pecahKata();
+        teksHasil.append("Done");
 
 //        String yangDicari = teksPencarian.getText();
 //        String isiData = "";
