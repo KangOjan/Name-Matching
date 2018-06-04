@@ -10,6 +10,8 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -20,6 +22,11 @@ public class Controller_DataSet {
     private final ArrayList<String> kataTerpilih = new ArrayList<>();
     ArrayList<String> tempKataTerpilih = new ArrayList<>();
     String[] kumpulanHurufDataset = {};
+    ArrayList<String> isiData = new ArrayList<>();
+
+    public ArrayList<String> getIsiData() {
+        return isiData;
+    }
 
     public String[] getKumpulanHurufDataset() {
         return kumpulanHurufDataset;
@@ -45,17 +52,19 @@ public class Controller_DataSet {
         }
         return capitalFlag;
     }
-
-    public void ambilData(String alamat) {
-        String isiData;
+    
+    public void ambilDataSet(String alamat){
         String[] kumpulanKata;
         File file = new File(alamat);
         File[] list = file.listFiles();
+        String data;
         for (int i = 0; i < list.length; i++) {
-            String path = list[i].getPath();
             try {
-                isiData = new String(Files.readAllBytes(Paths.get(path)));
-                kumpulanKata = isiData.split(" ");
+                String path = list[i].getPath();
+                data = new String(Files.readAllBytes(Paths.get(path)));
+                isiData.add(data);
+                
+                kumpulanKata = getIsiData().get(i).split(" ");
                 for (int j = 0; j < kumpulanKata.length; j++) {
                     kumpulanKata[j] = kumpulanKata[j].replaceAll("[^\\w]", "");
                 }
@@ -67,9 +76,44 @@ public class Controller_DataSet {
                     }
                 }
                 proses();
-                pecahKata();
+            } catch (IOException ex) {
+                Logger.getLogger(Controller_DataSet.class.getName()).log(Level.SEVERE, null, ex);
+                System.out.println(ex.getMessage());
+            }
+        }
+    }
+
+    public void ambilData(String alamat) {
+//        String isiData;
+        String[] kumpulanKata;
+        File file = new File(alamat);
+        File[] list = file.listFiles();
+        for (int i = 0; i < list.length; i++) {
+            String path = list[i].getPath();
+            try {
+//                isiData[i] = new String(Files.readAllBytes(Paths.get(path)));
+//                setIsiData(new String(Files.readAllBytes(Paths.get(path))));
+                isiData.add(new String(Files.readAllBytes(Paths.get(path))));
+                kumpulanKata = getIsiData().get(i).split(" ");
+                for (int j = 0; j < kumpulanKata.length; j++) {
+                    kumpulanKata[j] = kumpulanKata[j].replaceAll("[^\\w]", "");
+                }
+                for (int k = 0; k < kumpulanKata.length; k++) {
+                    String kataTemp;
+                    if (cekKapital(kumpulanKata[k]) == true) {
+                        kataTemp = kumpulanKata[k];
+                        tempKataTerpilih.add(kataTemp);
+                    }
+                }
+                proses();
+//                setIsiData("");
+//                System.out.println(getIsiData());
+//                pecahKata();
             } catch (IOException e) {
                 System.out.println(e.getMessage());
+            }
+            for (int j = 0; j < isiData.size(); j++) {
+                System.out.println(getIsiData());
             }
         }
     }
@@ -80,6 +124,9 @@ public class Controller_DataSet {
             kata = tempKataTerpilih.get(i).toLowerCase();
             kataTerpilih.add(kata);
         }
+//        for (int i = 0; i < kataTerpilih.size(); i++) {
+//            System.out.println(kataTerpilih.get(i));
+//        }
     }
 
     public void pecahKata() {
@@ -91,4 +138,6 @@ public class Controller_DataSet {
             System.out.print("\n");
         }
     }
+    
+    
 }

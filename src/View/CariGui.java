@@ -54,8 +54,9 @@ public class CariGui extends javax.swing.JFrame {
     }
 
     private void loadDataSet() {
-        String alamat = "D:\\Kuliah\\Ekstensi IF\\Semester 4\\Tugas Akhir\\Dataset Hadits\\Percobaan";
-        controller_DataSet.ambilData(alamat);
+//        String alamat = "D:\\Kuliah\\Ekstensi IF\\Semester 4\\Tugas Akhir\\Dataset Hadits\\Percobaan";
+        String alamat = "D:\\Kuliah\\Ekstensi IF\\Semester 4\\Tugas Akhir\\Code\\GUI_TA\\DatasetHadits";
+        controller_DataSet.ambilDataSet(alamat);
     }
 
     /**
@@ -195,18 +196,24 @@ public class CariGui extends javax.swing.JFrame {
 
     private void tombolCariActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tombolCariActionPerformed
         // TODO add your handling code here:
+        
+        for (int i = 0; i < controller_DataSet.getIsiData().size(); i++) {
+            System.out.println(controller_DataSet.getIsiData().get(i));
+        }
+        
+//        for (int i = 0; i < controller_DataSet.getKataTerpilih().size(); i++) {
+//            System.out.println(controller_DataSet.getIsiData().get(i));
+//        }
 
-//        Controller_DataSet controller_DataSet = new Controller_DataSet();
-//        Controller_DataDicari controller_DataDicari = new Controller_DataDicari();
-        String yangDicari = teksPencarian.getText();
-//        String alamat = "D:\\Kuliah\\Ekstensi IF\\Semester 4\\Tugas Akhir\\Dataset Hadits\\Percobaan";
-//        controller_DataSet.ambilData(alamat);
-        controller_DataDicari.setYangDicari(yangDicari);
-        System.out.println("Kata yang dicari : " + controller_DataDicari.getYangDicari());
-        System.out.println("Setelah dipotong menjadi : ");
-        controller_DataDicari.pecahKata();
-        teksHasil.append("Done");
-
+//        String yangDicari = teksPencarian.getText();
+//        controller_DataDicari.setYangDicari(yangDicari);
+//        System.out.println("Kata yang dicari : " + controller_DataDicari.getYangDicari());
+//        System.out.println("Setelah dipotong menjadi : ");
+//        controller_DataDicari.pecahKata();
+//        teksHasil.append("Done");
+        
+        
+        /*ini yang dulu*/
 //        String yangDicari = teksPencarian.getText();
 //        String isiData = "";
 //        String[] kumpulanKata = {};
@@ -309,16 +316,24 @@ public class CariGui extends javax.swing.JFrame {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
+
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(CariGui.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CariGui.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(CariGui.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CariGui.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(CariGui.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CariGui.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(CariGui.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CariGui.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>
