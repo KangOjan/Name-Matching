@@ -12,8 +12,7 @@ package View;
 //import java.util.logging.Level;
 //import java.util.logging.Logger;
 
-import Controller.Controller_DataDicari;
-import Controller.Controller_DataSet;
+import Controller.ControllerAll;
 import javax.swing.JOptionPane;
 
 /**
@@ -22,8 +21,8 @@ import javax.swing.JOptionPane;
  */
 public class CariGui extends javax.swing.JFrame {
 
-    Controller_DataSet controller_DataSet = new Controller_DataSet();
-    Controller_DataDicari controller_DataDicari = new Controller_DataDicari();
+    ControllerAll controller_All = new ControllerAll();
+//    Controller_DataDicari controller_DataDicari = new Controller_DataDicari();
 
     /**
      * Creates new form MainGui
@@ -56,7 +55,7 @@ public class CariGui extends javax.swing.JFrame {
     private void loadDataSet() {
 //        String alamat = "D:\\Kuliah\\Ekstensi IF\\Semester 4\\Tugas Akhir\\Dataset Hadits\\Percobaan";
         String alamat = "D:\\Kuliah\\Ekstensi IF\\Semester 4\\Tugas Akhir\\Code\\GUI_TA\\DatasetHadits";
-        controller_DataSet.ambilDataSet(alamat);
+        controller_All.keluarData(alamat);
     }
 
     /**
@@ -196,23 +195,19 @@ public class CariGui extends javax.swing.JFrame {
 
     private void tombolCariActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tombolCariActionPerformed
         // TODO add your handling code here:
-        
-        for (int i = 0; i < controller_DataSet.getIsiData().size(); i++) {
-            System.out.println(controller_DataSet.getIsiData().get(i));
-        }
-        
-//        for (int i = 0; i < controller_DataSet.getKataTerpilih().size(); i++) {
-//            System.out.println(controller_DataSet.getIsiData().get(i));
-//        }
 
+        controller_All.setYangDicari(teksPencarian.getText());
+        controller_All.prosesPotongKata();
+        teksHasil.append(controller_All.getHasil());
+//        for (int i = 0; i < controller_DataSet.getKataTerpilih().size(); i++) {
+//            teksHasil.append(controller_DataSet.getKataTerpilih().get(i) + "\n");
+//        }
 //        String yangDicari = teksPencarian.getText();
 //        controller_DataDicari.setYangDicari(yangDicari);
 //        System.out.println("Kata yang dicari : " + controller_DataDicari.getYangDicari());
 //        System.out.println("Setelah dipotong menjadi : ");
 //        controller_DataDicari.pecahKata();
 //        teksHasil.append("Done");
-        
-        
         /*ini yang dulu*/
 //        String yangDicari = teksPencarian.getText();
 //        String isiData = "";
