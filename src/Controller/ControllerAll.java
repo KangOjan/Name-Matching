@@ -32,7 +32,7 @@ public class ControllerAll {
     public String getHasil() {
         return hasil;
     }
-    
+
     public String[] getKumpulanHurufDicari() {
         return kumpulanHurufDicari;
     }
