@@ -4,13 +4,6 @@
  * and open the template in the editor.
  */
 package View;
-//
-//import java.io.File;
-//import java.io.IOException;
-//import java.nio.file.Files;
-//import java.nio.file.Paths;
-//import java.util.logging.Level;
-//import java.util.logging.Logger;
 
 import Controller.ControllerAll;
 import javax.swing.JOptionPane;
@@ -22,7 +15,6 @@ import javax.swing.JOptionPane;
 public class CariGui extends javax.swing.JFrame {
 
     ControllerAll controller_All = new ControllerAll();
-//    Controller_DataDicari controller_DataDicari = new Controller_DataDicari();
 
     /**
      * Creates new form MainGui
@@ -31,31 +23,12 @@ public class CariGui extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         awal();
-        loadDataSet();
     }
 
     public final void awal() {
         teksHasil.setEditable(false);
         teksPencarian.setEditable(false);
         tombolCari.setEnabled(false);
-    }
-
-    private static boolean cekKapital(String str) {
-        char ch;
-        boolean capitalFlag = false;
-        for (int i = 0; i < str.length(); i++) {
-            ch = str.charAt(i);
-            if (Character.isUpperCase(ch)) {
-                capitalFlag = true;
-            }
-        }
-        return capitalFlag;
-    }
-
-    private void loadDataSet() {
-//        String alamat = "D:\\Kuliah\\Ekstensi IF\\Semester 4\\Tugas Akhir\\Dataset Hadits\\Percobaan";
-        String alamat = "D:\\Kuliah\\Ekstensi IF\\Semester 4\\Tugas Akhir\\Code\\GUI_TA\\DatasetHadits";
-        controller_All.keluarData(alamat);
     }
 
     /**
@@ -196,82 +169,13 @@ public class CariGui extends javax.swing.JFrame {
     private void tombolCariActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tombolCariActionPerformed
         // TODO add your handling code here:
 
-        controller_All.setYangDicari(teksPencarian.getText());
-        controller_All.prosesPotongKata();
-        teksHasil.append(controller_All.getHasil());
-//        for (int i = 0; i < controller_DataSet.getKataTerpilih().size(); i++) {
-//            teksHasil.append(controller_DataSet.getKataTerpilih().get(i) + "\n");
-//        }
-//        String yangDicari = teksPencarian.getText();
-//        controller_DataDicari.setYangDicari(yangDicari);
-//        System.out.println("Kata yang dicari : " + controller_DataDicari.getYangDicari());
-//        System.out.println("Setelah dipotong menjadi : ");
-//        controller_DataDicari.pecahKata();
-//        teksHasil.append("Done");
-        /*ini yang dulu*/
-//        String yangDicari = teksPencarian.getText();
-//        String isiData = "";
-//        String[] kumpulanKata = {};
-//        String[] kumpulanHurufDicari = {};
-//        String[] kumpulanHurufDataset = {};
-//
-//        //alamat disimpennya dataset
-//        String alamat = "D:\\Kuliah\\Ekstensi IF\\Semester 4\\Tugas Akhir\\Code\\GUI_TA\\DatasetHadits";
-//
-//        //untuk membaca semua file pada folder
-//        File file = new File(alamat);
-//        File[] list = file.listFiles();
-//
-//        //perulangan dalam membaca file dalam satu folder
-//        for (int i = 0; i < list.length; i++) {
-//            //menyimpan path dari file ke i
-//            String path = list[i].getPath();
-//
-//            try {
-//                //perintah untuk membaca file ke i
-//                isiData = new String(Files.readAllBytes(Paths.get(path)));
-//                //memecah kalimat menjadi kata2
-//                kumpulanKata = isiData.split(" ");
-//
-//                //mengambil kata yang dicari dan dipecah jadi huruf2
-//                kumpulanHurufDicari = yangDicari.split(" ");
-//
-//                //perulangan untuk menghapus tanda baca dan merubah kata menjadi lowercase
-//                for (int j = 0; j < kumpulanKata.length; j++) {
-//                    kumpulanKata[j] = kumpulanKata[j].replaceAll("[^\\w]", "");
-//                    kumpulanKata[j] = kumpulanKata[j].toLowerCase();
-//                }
-//
-////                System.out.println("Kumpulan kata : ");
-////                for (String kata : kumpulanKata) {
-////                    System.out.print(kata + " ");
-////                }
-////                System.out.println("\n");
-//
-//                //perulangan untuk memecah menjadi huruf dari tiap kata2
-//                for (int k = 0; k < kumpulanKata.length; k++) {
-//
-//                    //mengambil kata ke k untuk dipecah menjadi huruf
-//                    String kataDataSet = kumpulanKata[k];
-//                    System.out.println(k + 1 + ". " + kataDataSet);
-//
-//                    //melakukan perulangan untuk memecah kataDataSet menjadi huruf2
-//                    for (int m = 0; m < kataDataSet.length(); m++) {
-//                        kumpulanHurufDataset = kataDataSet.split("(?!^)");
-//                    }
-//
-////                    System.out.println("Huruf nya : ");
-////                    for (int n = 0; n < kumpulanHurufDataset.length; n++) {
-////                        System.out.print(kumpulanHurufDataset[n]);
-////                        System.out.print("\n");
-////                    }
-////                    System.out.println("Selesai\n");
-//                }
-//            } catch (IOException ex) {
-//                Logger.getLogger(CariGui.class.getName()).log(Level.SEVERE, null, ex);
-//                ex.getMessage();
-//            }
-//        }
+        controller_All.setInputan(teksPencarian.getText());
+        controller_All.ambilData();
+        controller_All.prepocessing();
+        for (int i = 0; i < controller_All.getKalimatTerpilih().size(); i++) {
+            System.out.println(controller_All.getKalimatTerpilih().get(i));
+            teksHasil.append(controller_All.getKalimatTerpilih().get(i));
+        }
     }//GEN-LAST:event_tombolCariActionPerformed
 
     private void menuBaruActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuBaruActionPerformed
